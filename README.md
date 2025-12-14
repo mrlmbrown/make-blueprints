@@ -21,3 +21,7 @@ This repository stores exported Make.com scenario blueprints so they can be back
 
 - Sensitive data (API keys, secrets, or personal identifiers) should be removed or stored in Make connections, not inside blueprints.
 - Use descriptive filenames (for example, `student-engagement-monitor.blueprint.json`) to make scenarios easy to identify.
+
+## Visuals
+
+![Full DevOps CI/CD Event Pipeline](make-scenario images/Full DevOps CICD Pipeline.png)
