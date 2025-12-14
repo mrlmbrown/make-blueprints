@@ -1,0 +1,2835 @@
+{
+    "name": "Full DevOps CI/CD Event Pipeline",
+    "flow": [
+        {
+            "id": 1,
+            "module": "gateway:CustomWebHook",
+            "version": 1,
+            "parameters": {
+                "hook": 1577631,
+                "maxResults": 1
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 150
+                },
+                "restore": {
+                    "parameters": {
+                        "hook": {
+                            "label": "github-pipeline-webhook",
+                            "data": {
+                                "editable": "true"
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "hook",
+                        "type": "hook:gateway-webhook",
+                        "label": "Webhook",
+                        "required": true
+                    },
+                    {
+                        "name": "maxResults",
+                        "type": "number",
+                        "label": "Maximum number of results"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "ref",
+                        "type": "text"
+                    },
+                    {
+                        "name": "before",
+                        "type": "text"
+                    },
+                    {
+                        "name": "after",
+                        "type": "text"
+                    },
+                    {
+                        "name": "repository",
+                        "type": "collection",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "number"
+                            },
+                            {
+                                "name": "node_id",
+                                "type": "text"
+                            },
+                            {
+                                "name": "name",
+                                "type": "text"
+                            },
+                            {
+                                "name": "full_name",
+                                "type": "text"
+                            },
+                            {
+                                "name": "private",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "owner",
+                                "type": "collection",
+                                "spec": [
+                                    {
+                                        "name": "name",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "email",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "login",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "id",
+                                        "type": "number"
+                                    },
+                                    {
+                                        "name": "node_id",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "avatar_url",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "gravatar_id",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "url",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "html_url",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "followers_url",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "following_url",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "gists_url",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "starred_url",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "subscriptions_url",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "organizations_url",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "repos_url",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "events_url",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "received_events_url",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "type",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "user_view_type",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "site_admin",
+                                        "type": "boolean"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "html_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "description",
+                                "type": "text"
+                            },
+                            {
+                                "name": "fork",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "forks_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "keys_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "collaborators_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "teams_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "hooks_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "issue_events_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "events_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "assignees_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "branches_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "tags_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "blobs_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "git_tags_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "git_refs_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "trees_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "statuses_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "languages_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "stargazers_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "contributors_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "subscribers_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "subscription_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "commits_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "git_commits_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "comments_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "issue_comment_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "contents_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "compare_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "merges_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "archive_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "downloads_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "issues_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "pulls_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "milestones_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "notifications_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "labels_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "releases_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "deployments_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "created_at",
+                                "type": "number"
+                            },
+                            {
+                                "name": "updated_at",
+                                "type": "text"
+                            },
+                            {
+                                "name": "pushed_at",
+                                "type": "number"
+                            },
+                            {
+                                "name": "git_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "ssh_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "clone_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "svn_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "homepage",
+                                "type": "text"
+                            },
+                            {
+                                "name": "size",
+                                "type": "number"
+                            },
+                            {
+                                "name": "stargazers_count",
+                                "type": "number"
+                            },
+                            {
+                                "name": "watchers_count",
+                                "type": "number"
+                            },
+                            {
+                                "name": "language",
+                                "type": "text"
+                            },
+                            {
+                                "name": "has_issues",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "has_projects",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "has_downloads",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "has_wiki",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "has_pages",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "has_discussions",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "forks_count",
+                                "type": "number"
+                            },
+                            {
+                                "name": "mirror_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "archived",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "disabled",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "open_issues_count",
+                                "type": "number"
+                            },
+                            {
+                                "name": "license",
+                                "type": "collection",
+                                "spec": [
+                                    {
+                                        "name": "key",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "name",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "spdx_id",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "url",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "node_id",
+                                        "type": "text"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "allow_forking",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "is_template",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "web_commit_signoff_required",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "topics",
+                                "type": "array"
+                            },
+                            {
+                                "name": "visibility",
+                                "type": "text"
+                            },
+                            {
+                                "name": "forks",
+                                "type": "number"
+                            },
+                            {
+                                "name": "open_issues",
+                                "type": "number"
+                            },
+                            {
+                                "name": "watchers",
+                                "type": "number"
+                            },
+                            {
+                                "name": "default_branch",
+                                "type": "text"
+                            },
+                            {
+                                "name": "stargazers",
+                                "type": "number"
+                            },
+                            {
+                                "name": "master_branch",
+                                "type": "text"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "pusher",
+                        "type": "collection",
+                        "spec": [
+                            {
+                                "name": "name",
+                                "type": "text"
+                            },
+                            {
+                                "name": "email",
+                                "type": "text"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "sender",
+                        "type": "collection",
+                        "spec": [
+                            {
+                                "name": "login",
+                                "type": "text"
+                            },
+                            {
+                                "name": "id",
+                                "type": "number"
+                            },
+                            {
+                                "name": "node_id",
+                                "type": "text"
+                            },
+                            {
+                                "name": "avatar_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "gravatar_id",
+                                "type": "text"
+                            },
+                            {
+                                "name": "url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "html_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "followers_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "following_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "gists_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "starred_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "subscriptions_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "organizations_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "repos_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "events_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "received_events_url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text"
+                            },
+                            {
+                                "name": "user_view_type",
+                                "type": "text"
+                            },
+                            {
+                                "name": "site_admin",
+                                "type": "boolean"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "created",
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "deleted",
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "forced",
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "base_ref",
+                        "type": "text"
+                    },
+                    {
+                        "name": "compare",
+                        "type": "text"
+                    },
+                    {
+                        "name": "commits",
+                        "type": "array",
+                        "spec": {
+                            "type": "collection",
+                            "spec": [
+                                {
+                                    "name": "id",
+                                    "type": "text"
+                                },
+                                {
+                                    "name": "tree_id",
+                                    "type": "text"
+                                },
+                                {
+                                    "name": "distinct",
+                                    "type": "boolean"
+                                },
+                                {
+                                    "name": "message",
+                                    "type": "text"
+                                },
+                                {
+                                    "name": "timestamp",
+                                    "type": "text"
+                                },
+                                {
+                                    "name": "url",
+                                    "type": "text"
+                                },
+                                {
+                                    "name": "author",
+                                    "type": "collection",
+                                    "spec": [
+                                        {
+                                            "name": "name",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "name": "email",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "name": "date",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "name": "username",
+                                            "type": "text"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "committer",
+                                    "type": "collection",
+                                    "spec": [
+                                        {
+                                            "name": "name",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "name": "email",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "name": "date",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "name": "username",
+                                            "type": "text"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "added",
+                                    "type": "array",
+                                    "spec": {
+                                        "type": "text"
+                                    }
+                                },
+                                {
+                                    "name": "removed",
+                                    "type": "array"
+                                },
+                                {
+                                    "name": "modified",
+                                    "type": "array"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "head_commit",
+                        "type": "collection",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text"
+                            },
+                            {
+                                "name": "tree_id",
+                                "type": "text"
+                            },
+                            {
+                                "name": "distinct",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "message",
+                                "type": "text"
+                            },
+                            {
+                                "name": "timestamp",
+                                "type": "text"
+                            },
+                            {
+                                "name": "url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "author",
+                                "type": "collection",
+                                "spec": [
+                                    {
+                                        "name": "name",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "email",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "date",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "username",
+                                        "type": "text"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "committer",
+                                "type": "collection",
+                                "spec": [
+                                    {
+                                        "name": "name",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "email",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "date",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "username",
+                                        "type": "text"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "added",
+                                "type": "array",
+                                "spec": {
+                                    "type": "text"
+                                }
+                            },
+                            {
+                                "name": "removed",
+                                "type": "array"
+                            },
+                            {
+                                "name": "modified",
+                                "type": "array"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": 13,
+            "module": "builtin:BasicRouter",
+            "version": 1,
+            "mapper": null,
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 150
+                }
+            },
+            "routes": [
+                {
+                    "flow": [
+                        {
+                            "id": 19,
+                            "module": "http:ActionSendData",
+                            "version": 3,
+                            "parameters": {
+                                "handleErrors": true,
+                                "useNewZLibDeCompress": true
+                            },
+                            "mapper": {
+                                "ca": "",
+                                "qs": [],
+                                "url": "https://discord.com/api/webhooks/1439062964773584988/4GaG2AEdSs6LKcfRmImVdd0ib0ss8qHrkYzGb3wWs-Pk-GDLEjd8BLQ2Noc6qHo_Jqb9",
+                                "data": "{\r\n  \"username\": \"Pipeline Monitor\",\r\n  \"avatar_url\": \"https://i.imgur.com/6VBx3io.png\",\r\n  \"content\": \":x: **Pipeline FAILED**\",\r\n  \"embeds\": [\r\n    {\r\n      \"title\": \"❌ Pipeline Failure Detected\",\r\n      \"description\": \"A workflow has failed.\",\r\n      \"color\": 15158332,\r\n      \"fields\": [\r\n        {\r\n          \"name\": \"Repository\",\r\n          \"value\": \"{{1.repository.full_name}}\",\r\n          \"inline\": false\r\n        },\r\n        {\r\n          \"name\": \"Branch\",\r\n          \"value\": \"{{1.workflow_run.head_branch}}\",\r\n          \"inline\": true\r\n        },\r\n        {\r\n          \"name\": \"Status\",\r\n          \"value\": \"{{1.workflow_run.conclusion}}\",\r\n          \"inline\": true\r\n        }\r\n      ],\r\n      \"url\": \"{{1.workflow_run.html_url}}\",\r\n      \"timestamp\": \"{{formatDate(now; \\ + \"YYYY-MM-DDTHH:mm:ssZ\\\")}}\",\r\n      \"footer\": {\r\n        \"text\": \"CI/CD Pipeline Monitor • Make.com\"\r\n      }\r\n    }\r\n  ]\r\n}",
+                                "gzip": true,
+                                "method": "post",
+                                "headers": [
+                                    {
+                                        "name": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "timeout": "",
+                                "useMtls": false,
+                                "authPass": "",
+                                "authUser": "",
+                                "bodyType": "raw",
+                                "contentType": "application/json",
+                                "serializeUrl": false,
+                                "shareCookies": false,
+                                "parseResponse": false,
+                                "followRedirect": true,
+                                "useQuerystring": false,
+                                "followAllRedirects": false,
+                                "rejectUnauthorized": true
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 600,
+                                    "y": 150
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "qs": {
+                                            "mode": "chose"
+                                        },
+                                        "method": {
+                                            "mode": "chose",
+                                            "label": "POST"
+                                        },
+                                        "headers": {
+                                            "mode": "chose",
+                                            "items": [
+                                                null
+                                            ]
+                                        },
+                                        "bodyType": {
+                                            "label": "Raw"
+                                        },
+                                        "contentType": {
+                                            "label": "JSON (application/json)"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "handleErrors",
+                                        "type": "boolean",
+                                        "label": "Evaluate all states as errors (except for 2xx and 3xx )",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "useNewZLibDeCompress",
+                                        "type": "hidden"
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "url",
+                                        "type": "url",
+                                        "label": "URL",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "serializeUrl",
+                                        "type": "boolean",
+                                        "label": "Serialize URL",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "method",
+                                        "type": "select",
+                                        "label": "Method",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                "get",
+                                                "head",
+                                                "post",
+                                                "put",
+                                                "patch",
+                                                "delete",
+                                                "options"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "headers",
+                                        "spec": [
+                                            {
+                                                "name": "name",
+                                                "type": "text",
+                                                "label": "Name",
+                                                "required": true
+                                            },
+                                            {
+                                                "name": "value",
+                                                "type": "text",
+                                                "label": "Value"
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Headers"
+                                    },
+                                    {
+                                        "name": "qs",
+                                        "spec": [
+                                            {
+                                                "name": "name",
+                                                "type": "text",
+                                                "label": "Name",
+                                                "required": true
+                                            },
+                                            {
+                                                "name": "value",
+                                                "type": "text",
+                                                "label": "Value"
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Query String"
+                                    },
+                                    {
+                                        "name": "bodyType",
+                                        "type": "select",
+                                        "label": "Body type",
+                                        "validate": {
+                                            "enum": [
+                                                "raw",
+                                                "x_www_form_urlencoded",
+                                                "multipart_form_data"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "parseResponse",
+                                        "type": "boolean",
+                                        "label": "Parse response",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "authUser",
+                                        "type": "text",
+                                        "label": "User name"
+                                    },
+                                    {
+                                        "name": "authPass",
+                                        "type": "password",
+                                        "label": "Password"
+                                    },
+                                    {
+                                        "name": "timeout",
+                                        "type": "uinteger",
+                                        "label": "Timeout",
+                                        "validate": {
+                                            "max": 300,
+                                            "min": 1
+                                        }
+                                    },
+                                    {
+                                        "name": "shareCookies",
+                                        "type": "boolean",
+                                        "label": "Share cookies with other HTTP modules",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "ca",
+                                        "type": "cert",
+                                        "label": "Self-signed certificate"
+                                    },
+                                    {
+                                        "name": "rejectUnauthorized",
+                                        "type": "boolean",
+                                        "label": "Reject connections that are using unverified (self-signed) certificates",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "followRedirect",
+                                        "type": "boolean",
+                                        "label": "Follow redirect",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "useQuerystring",
+                                        "type": "boolean",
+                                        "label": "Disable serialization of multiple same query string keys as arrays",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "gzip",
+                                        "type": "boolean",
+                                        "label": "Request compressed content",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "useMtls",
+                                        "type": "boolean",
+                                        "label": "Use Mutual TLS",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "contentType",
+                                        "type": "select",
+                                        "label": "Content type",
+                                        "validate": {
+                                            "enum": [
+                                                "text/plain",
+                                                "application/json",
+                                                "application/xml",
+                                                "text/xml",
+                                                "text/html",
+                                                "custom"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "data",
+                                        "type": "buffer",
+                                        "label": "Request content"
+                                    },
+                                    {
+                                        "name": "followAllRedirects",
+                                        "type": "boolean",
+                                        "label": "Follow all redirect",
+                                        "required": true
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": 20,
+                            "module": "builtin:BasicRouter",
+                            "version": 1,
+                            "mapper": null,
+                            "metadata": {
+                                "designer": {
+                                    "x": 900,
+                                    "y": 150
+                                }
+                            },
+                            "routes": [
+                                {
+                                    "flow": [
+                                        {
+                                            "id": 5,
+                                            "module": "google-sheets:updateRow",
+                                            "version": 2,
+                                            "parameters": {
+                                                "__IMTCONN__": 6285186
+                                            },
+                                            "filter": {
+                                                "name": "Pipeline Failed",
+                                                "conditions": [
+                                                    [
+                                                        {
+                                                            "a": "1.workflow_run.status",
+                                                            "b": "completed",
+                                                            "o": "text:equal"
+                                                        },
+                                                        {
+                                                            "a": "1.workflow_run.conclusion",
+                                                            "b": "failure",
+                                                            "o": "text:equal"
+                                                        }
+                                                    ]
+                                                ]
+                                            },
+                                            "mapper": {
+                                                "mode": "fromAll",
+                                                "values": {
+                                                    "0": "{{formatDate(now; \"YYYY-MM-DD HH:mm:ss\")}}",
+                                                    "1": "{{1.repository.full_name}}",
+                                                    "2": "{{1.workflow_run.head_branch}}",
+                                                    "3": "{{1.workflow_run.name}}",
+                                                    "4": "{{1.workflow_run.status}}",
+                                                    "5": "{{1.workflow_run.conclusion}}",
+                                                    "6": "{{1.workflow_run.event}}",
+                                                    "7": "{{1.workflow_run.run_attempt}}",
+                                                    "8": "{{substring(1.workflow_run.head_sha; 0; 7)}}",
+                                                    "9": "{{1.workflow_run.head_commit.message}}",
+                                                    "10": "{{1.sender.login}}",
+                                                    "11": "{{1.workflow_run.html_url}}",
+                                                    "12": "{{1.repository.html_url}}/commit/{{1.workflow_run.head_sha}}",
+                                                    "13": "6.data.html_url\r\n​",
+                                                    "14": "{{dateDiff(1.workflow_run.run_started_at; 1.workflow_run.updated_at; \"seconds\")}}",
+                                                    "15": "round( number(O) / 60 ; 2 )\r\n​",
+                                                    "16": "if( F = \"success\" ; \"1\" ; \"0\" )",
+                                                    "17": "if(F = \"failure\"; \"Pipeline Error\"; if(F = \"cancelled\"; \"Manual Cancel\"; if(F = \"timed_out\"; \"Timeout\"; if(F = \"skipped\"; \"Skipped\"; \"N/A\"))))\r\n​"
+                                                },
+                                                "sheetId": "CI_CD_Tracker",
+                                                "rowNumber": "2",
+                                                "spreadsheetId": "1WJ4fb8oa4I7M9Dh3VnyPSi9MBFGJFPK86RrRPoYXYgQ",
+                                                "includesHeaders": true,
+                                                "valueInputOption": "USER_ENTERED"
+                                            },
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": 1200,
+                                                    "y": 0
+                                                },
+                                                "restore": {
+                                                    "expect": {
+                                                        "mode": {
+                                                            "label": "Select from all"
+                                                        },
+                                                        "sheetId": {
+                                                            "mode": "edit"
+                                                        },
+                                                        "includesHeaders": {
+                                                            "label": "Yes",
+                                                            "nested": [
+                                                                {
+                                                                    "name": "values",
+                                                                    "spec": [
+                                                                        {
+                                                                            "name": "0",
+                                                                            "type": "text",
+                                                                            "label": "A"
+                                                                        },
+                                                                        {
+                                                                            "name": "1",
+                                                                            "type": "text",
+                                                                            "label": "B"
+                                                                        },
+                                                                        {
+                                                                            "name": "2",
+                                                                            "type": "text",
+                                                                            "label": "C"
+                                                                        },
+                                                                        {
+                                                                            "name": "3",
+                                                                            "type": "text",
+                                                                            "label": "D"
+                                                                        },
+                                                                        {
+                                                                            "name": "4",
+                                                                            "type": "text",
+                                                                            "label": "E"
+                                                                        },
+                                                                        {
+                                                                            "name": "5",
+                                                                            "type": "text",
+                                                                            "label": "F"
+                                                                        },
+                                                                        {
+                                                                            "name": "6",
+                                                                            "type": "text",
+                                                                            "label": "G"
+                                                                        },
+                                                                        {
+                                                                            "name": "7",
+                                                                            "type": "text",
+                                                                            "label": "H"
+                                                                        },
+                                                                        {
+                                                                            "name": "8",
+                                                                            "type": "text",
+                                                                            "label": "I"
+                                                                        },
+                                                                        {
+                                                                            "name": "9",
+                                                                            "type": "text",
+                                                                            "label": "J"
+                                                                        },
+                                                                        {
+                                                                            "name": "10",
+                                                                            "type": "text",
+                                                                            "label": "K"
+                                                                        },
+                                                                        {
+                                                                            "name": "11",
+                                                                            "type": "text",
+                                                                            "label": "L"
+                                                                        },
+                                                                        {
+                                                                            "name": "12",
+                                                                            "type": "text",
+                                                                            "label": "M"
+                                                                        },
+                                                                        {
+                                                                            "name": "13",
+                                                                            "type": "text",
+                                                                            "label": "N"
+                                                                        },
+                                                                        {
+                                                                            "name": "14",
+                                                                            "type": "text",
+                                                                            "label": "O"
+                                                                        },
+                                                                        {
+                                                                            "name": "15",
+                                                                            "type": "text",
+                                                                            "label": "P"
+                                                                        },
+                                                                        {
+                                                                            "name": "16",
+                                                                            "type": "text",
+                                                                            "label": "Q"
+                                                                        },
+                                                                        {
+                                                                            "name": "17",
+                                                                            "type": "text",
+                                                                            "label": "R"
+                                                                        },
+                                                                        {
+                                                                            "name": "18",
+                                                                            "type": "text",
+                                                                            "label": "S"
+                                                                        },
+                                                                        {
+                                                                            "name": "19",
+                                                                            "type": "text",
+                                                                            "label": "T"
+                                                                        },
+                                                                        {
+                                                                            "name": "20",
+                                                                            "type": "text",
+                                                                            "label": "U"
+                                                                        },
+                                                                        {
+                                                                            "name": "21",
+                                                                            "type": "text",
+                                                                            "label": "V"
+                                                                        },
+                                                                        {
+                                                                            "name": "22",
+                                                                            "type": "text",
+                                                                            "label": "W"
+                                                                        },
+                                                                        {
+                                                                            "name": "23",
+                                                                            "type": "text",
+                                                                            "label": "X"
+                                                                        },
+                                                                        {
+                                                                            "name": "24",
+                                                                            "type": "text",
+                                                                            "label": "Y"
+                                                                        },
+                                                                        {
+                                                                            "name": "25",
+                                                                            "type": "text",
+                                                                            "label": "Z"
+                                                                        },
+                                                                        {
+                                                                            "name": "26",
+                                                                            "type": "text",
+                                                                            "label": "AA"
+                                                                        },
+                                                                        {
+                                                                            "name": "27",
+                                                                            "type": "text",
+                                                                            "label": "AB"
+                                                                        },
+                                                                        {
+                                                                            "name": "28",
+                                                                            "type": "text",
+                                                                            "label": "AC"
+                                                                        },
+                                                                        {
+                                                                            "name": "29",
+                                                                            "type": "text",
+                                                                            "label": "AD"
+                                                                        },
+                                                                        {
+                                                                            "name": "30",
+                                                                            "type": "text",
+                                                                            "label": "AE"
+                                                                        },
+                                                                        {
+                                                                            "name": "31",
+                                                                            "type": "text",
+                                                                            "label": "AF"
+                                                                        },
+                                                                        {
+                                                                            "name": "32",
+                                                                            "type": "text",
+                                                                            "label": "AG"
+                                                                        },
+                                                                        {
+                                                                            "name": "33",
+                                                                            "type": "text",
+                                                                            "label": "AH"
+                                                                        },
+                                                                        {
+                                                                            "name": "34",
+                                                                            "type": "text",
+                                                                            "label": "AI"
+                                                                        },
+                                                                        {
+                                                                            "name": "35",
+                                                                            "type": "text",
+                                                                            "label": "AJ"
+                                                                        },
+                                                                        {
+                                                                            "name": "36",
+                                                                            "type": "text",
+                                                                            "label": "AK"
+                                                                        },
+                                                                        {
+                                                                            "name": "37",
+                                                                            "type": "text",
+                                                                            "label": "AL"
+                                                                        },
+                                                                        {
+                                                                            "name": "38",
+                                                                            "type": "text",
+                                                                            "label": "AM"
+                                                                        },
+                                                                        {
+                                                                            "name": "39",
+                                                                            "type": "text",
+                                                                            "label": "AN"
+                                                                        },
+                                                                        {
+                                                                            "name": "40",
+                                                                            "type": "text",
+                                                                            "label": "AO"
+                                                                        },
+                                                                        {
+                                                                            "name": "41",
+                                                                            "type": "text",
+                                                                            "label": "AP"
+                                                                        },
+                                                                        {
+                                                                            "name": "42",
+                                                                            "type": "text",
+                                                                            "label": "AQ"
+                                                                        },
+                                                                        {
+                                                                            "name": "43",
+                                                                            "type": "text",
+                                                                            "label": "AR"
+                                                                        },
+                                                                        {
+                                                                            "name": "44",
+                                                                            "type": "text",
+                                                                            "label": "AS"
+                                                                        },
+                                                                        {
+                                                                            "name": "45",
+                                                                            "type": "text",
+                                                                            "label": "AT"
+                                                                        },
+                                                                        {
+                                                                            "name": "46",
+                                                                            "type": "text",
+                                                                            "label": "AU"
+                                                                        },
+                                                                        {
+                                                                            "name": "47",
+                                                                            "type": "text",
+                                                                            "label": "AV"
+                                                                        },
+                                                                        {
+                                                                            "name": "48",
+                                                                            "type": "text",
+                                                                            "label": "AW"
+                                                                        },
+                                                                        {
+                                                                            "name": "49",
+                                                                            "type": "text",
+                                                                            "label": "AX"
+                                                                        },
+                                                                        {
+                                                                            "name": "50",
+                                                                            "type": "text",
+                                                                            "label": "AY"
+                                                                        },
+                                                                        {
+                                                                            "name": "51",
+                                                                            "type": "text",
+                                                                            "label": "AZ"
+                                                                        },
+                                                                        {
+                                                                            "name": "52",
+                                                                            "type": "text",
+                                                                            "label": "BA"
+                                                                        },
+                                                                        {
+                                                                            "name": "53",
+                                                                            "type": "text",
+                                                                            "label": "BB"
+                                                                        },
+                                                                        {
+                                                                            "name": "54",
+                                                                            "type": "text",
+                                                                            "label": "BC"
+                                                                        },
+                                                                        {
+                                                                            "name": "55",
+                                                                            "type": "text",
+                                                                            "label": "BD"
+                                                                        },
+                                                                        {
+                                                                            "name": "56",
+                                                                            "type": "text",
+                                                                            "label": "BE"
+                                                                        },
+                                                                        {
+                                                                            "name": "57",
+                                                                            "type": "text",
+                                                                            "label": "BF"
+                                                                        },
+                                                                        {
+                                                                            "name": "58",
+                                                                            "type": "text",
+                                                                            "label": "BG"
+                                                                        },
+                                                                        {
+                                                                            "name": "59",
+                                                                            "type": "text",
+                                                                            "label": "BH"
+                                                                        },
+                                                                        {
+                                                                            "name": "60",
+                                                                            "type": "text",
+                                                                            "label": "BI"
+                                                                        },
+                                                                        {
+                                                                            "name": "61",
+                                                                            "type": "text",
+                                                                            "label": "BJ"
+                                                                        },
+                                                                        {
+                                                                            "name": "62",
+                                                                            "type": "text",
+                                                                            "label": "BK"
+                                                                        },
+                                                                        {
+                                                                            "name": "63",
+                                                                            "type": "text",
+                                                                            "label": "BL"
+                                                                        },
+                                                                        {
+                                                                            "name": "64",
+                                                                            "type": "text",
+                                                                            "label": "BM"
+                                                                        },
+                                                                        {
+                                                                            "name": "65",
+                                                                            "type": "text",
+                                                                            "label": "BN"
+                                                                        },
+                                                                        {
+                                                                            "name": "66",
+                                                                            "type": "text",
+                                                                            "label": "BO"
+                                                                        },
+                                                                        {
+                                                                            "name": "67",
+                                                                            "type": "text",
+                                                                            "label": "BP"
+                                                                        },
+                                                                        {
+                                                                            "name": "68",
+                                                                            "type": "text",
+                                                                            "label": "BQ"
+                                                                        },
+                                                                        {
+                                                                            "name": "69",
+                                                                            "type": "text",
+                                                                            "label": "BR"
+                                                                        },
+                                                                        {
+                                                                            "name": "70",
+                                                                            "type": "text",
+                                                                            "label": "BS"
+                                                                        },
+                                                                        {
+                                                                            "name": "71",
+                                                                            "type": "text",
+                                                                            "label": "BT"
+                                                                        },
+                                                                        {
+                                                                            "name": "72",
+                                                                            "type": "text",
+                                                                            "label": "BU"
+                                                                        },
+                                                                        {
+                                                                            "name": "73",
+                                                                            "type": "text",
+                                                                            "label": "BV"
+                                                                        },
+                                                                        {
+                                                                            "name": "74",
+                                                                            "type": "text",
+                                                                            "label": "BW"
+                                                                        },
+                                                                        {
+                                                                            "name": "75",
+                                                                            "type": "text",
+                                                                            "label": "BX"
+                                                                        },
+                                                                        {
+                                                                            "name": "76",
+                                                                            "type": "text",
+                                                                            "label": "BY"
+                                                                        },
+                                                                        {
+                                                                            "name": "77",
+                                                                            "type": "text",
+                                                                            "label": "BZ"
+                                                                        },
+                                                                        {
+                                                                            "name": "78",
+                                                                            "type": "text",
+                                                                            "label": "CA"
+                                                                        },
+                                                                        {
+                                                                            "name": "79",
+                                                                            "type": "text",
+                                                                            "label": "CB"
+                                                                        },
+                                                                        {
+                                                                            "name": "80",
+                                                                            "type": "text",
+                                                                            "label": "CC"
+                                                                        },
+                                                                        {
+                                                                            "name": "81",
+                                                                            "type": "text",
+                                                                            "label": "CD"
+                                                                        },
+                                                                        {
+                                                                            "name": "82",
+                                                                            "type": "text",
+                                                                            "label": "CE"
+                                                                        },
+                                                                        {
+                                                                            "name": "83",
+                                                                            "type": "text",
+                                                                            "label": "CF"
+                                                                        },
+                                                                        {
+                                                                            "name": "84",
+                                                                            "type": "text",
+                                                                            "label": "CG"
+                                                                        },
+                                                                        {
+                                                                            "name": "85",
+                                                                            "type": "text",
+                                                                            "label": "CH"
+                                                                        },
+                                                                        {
+                                                                            "name": "86",
+                                                                            "type": "text",
+                                                                            "label": "CI"
+                                                                        },
+                                                                        {
+                                                                            "name": "87",
+                                                                            "type": "text",
+                                                                            "label": "CJ"
+                                                                        },
+                                                                        {
+                                                                            "name": "88",
+                                                                            "type": "text",
+                                                                            "label": "CK"
+                                                                        },
+                                                                        {
+                                                                            "name": "89",
+                                                                            "type": "text",
+                                                                            "label": "CL"
+                                                                        },
+                                                                        {
+                                                                            "name": "90",
+                                                                            "type": "text",
+                                                                            "label": "CM"
+                                                                        },
+                                                                        {
+                                                                            "name": "91",
+                                                                            "type": "text",
+                                                                            "label": "CN"
+                                                                        },
+                                                                        {
+                                                                            "name": "92",
+                                                                            "type": "text",
+                                                                            "label": "CO"
+                                                                        },
+                                                                        {
+                                                                            "name": "93",
+                                                                            "type": "text",
+                                                                            "label": "CP"
+                                                                        },
+                                                                        {
+                                                                            "name": "94",
+                                                                            "type": "text",
+                                                                            "label": "CQ"
+                                                                        },
+                                                                        {
+                                                                            "name": "95",
+                                                                            "type": "text",
+                                                                            "label": "CR"
+                                                                        },
+                                                                        {
+                                                                            "name": "96",
+                                                                            "type": "text",
+                                                                            "label": "CS"
+                                                                        },
+                                                                        {
+                                                                            "name": "97",
+                                                                            "type": "text",
+                                                                            "label": "CT"
+                                                                        },
+                                                                        {
+                                                                            "name": "98",
+                                                                            "type": "text",
+                                                                            "label": "CU"
+                                                                        },
+                                                                        {
+                                                                            "name": "99",
+                                                                            "type": "text",
+                                                                            "label": "CV"
+                                                                        },
+                                                                        {
+                                                                            "name": "100",
+                                                                            "type": "text",
+                                                                            "label": "CW"
+                                                                        },
+                                                                        {
+                                                                            "name": "101",
+                                                                            "type": "text",
+                                                                            "label": "CX"
+                                                                        },
+                                                                        {
+                                                                            "name": "102",
+                                                                            "type": "text",
+                                                                            "label": "CY"
+                                                                        },
+                                                                        {
+                                                                            "name": "103",
+                                                                            "type": "text",
+                                                                            "label": "CZ"
+                                                                        }
+                                                                    ],
+                                                                    "type": "collection",
+                                                                    "label": "Values"
+                                                                }
+                                                            ]
+                                                        },
+                                                        "valueInputOption": {
+                                                            "mode": "chose",
+                                                            "label": "User entered"
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "google"
+                                                            },
+                                                            "label": "My Google connection (lennismbrown@gmail.com)"
+                                                        }
+                                                    }
+                                                },
+                                                "parameters": [
+                                                    {
+                                                        "name": "__IMTCONN__",
+                                                        "type": "account:google",
+                                                        "label": "Connection",
+                                                        "required": true
+                                                    }
+                                                ],
+                                                "expect": [
+                                                    {
+                                                        "name": "mode",
+                                                        "type": "select",
+                                                        "label": "Search Method",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                "select",
+                                                                "fromAll",
+                                                                "map"
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "valueInputOption",
+                                                        "type": "select",
+                                                        "label": "Value input option",
+                                                        "validate": {
+                                                            "enum": [
+                                                                "USER_ENTERED",
+                                                                "RAW"
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "spreadsheetId",
+                                                        "type": "text",
+                                                        "label": "Spreadsheet ID",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "mode": "edit",
+                                                        "name": "sheetId",
+                                                        "type": "select",
+                                                        "label": "Sheet Name",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "rowNumber",
+                                                        "type": "uinteger",
+                                                        "label": "Row number",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "includesHeaders",
+                                                        "type": "select",
+                                                        "label": "Table contains headers",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                true,
+                                                                false
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "values",
+                                                        "spec": [
+                                                            {
+                                                                "name": "0",
+                                                                "type": "text",
+                                                                "label": "A"
+                                                            },
+                                                            {
+                                                                "name": "1",
+                                                                "type": "text",
+                                                                "label": "B"
+                                                            },
+                                                            {
+                                                                "name": "2",
+                                                                "type": "text",
+                                                                "label": "C"
+                                                            },
+                                                            {
+                                                                "name": "3",
+                                                                "type": "text",
+                                                                "label": "D"
+                                                            },
+                                                            {
+                                                                "name": "4",
+                                                                "type": "text",
+                                                                "label": "E"
+                                                            },
+                                                            {
+                                                                "name": "5",
+                                                                "type": "text",
+                                                                "label": "F"
+                                                            },
+                                                            {
+                                                                "name": "6",
+                                                                "type": "text",
+                                                                "label": "G"
+                                                            },
+                                                            {
+                                                                "name": "7",
+                                                                "type": "text",
+                                                                "label": "H"
+                                                            },
+                                                            {
+                                                                "name": "8",
+                                                                "type": "text",
+                                                                "label": "I"
+                                                            },
+                                                            {
+                                                                "name": "9",
+                                                                "type": "text",
+                                                                "label": "J"
+                                                            },
+                                                            {
+                                                                "name": "10",
+                                                                "type": "text",
+                                                                "label": "K"
+                                                            },
+                                                            {
+                                                                "name": "11",
+                                                                "type": "text",
+                                                                "label": "L"
+                                                            },
+                                                            {
+                                                                "name": "12",
+                                                                "type": "text",
+                                                                "label": "M"
+                                                            },
+                                                            {
+                                                                "name": "13",
+                                                                "type": "text",
+                                                                "label": "N"
+                                                            },
+                                                            {
+                                                                "name": "14",
+                                                                "type": "text",
+                                                                "label": "O"
+                                                            },
+                                                            {
+                                                                "name": "15",
+                                                                "type": "text",
+                                                                "label": "P"
+                                                            },
+                                                            {
+                                                                "name": "16",
+                                                                "type": "text",
+                                                                "label": "Q"
+                                                            },
+                                                            {
+                                                                "name": "17",
+                                                                "type": "text",
+                                                                "label": "R"
+                                                            },
+                                                            {
+                                                                "name": "18",
+                                                                "type": "text",
+                                                                "label": "S"
+                                                            },
+                                                            {
+                                                                "name": "19",
+                                                                "type": "text",
+                                                                "label": "T"
+                                                            },
+                                                            {
+                                                                "name": "20",
+                                                                "type": "text",
+                                                                "label": "U"
+                                                            },
+                                                            {
+                                                                "name": "21",
+                                                                "type": "text",
+                                                                "label": "V"
+                                                            },
+                                                            {
+                                                                "name": "22",
+                                                                "type": "text",
+                                                                "label": "W"
+                                                            },
+                                                            {
+                                                                "name": "23",
+                                                                "type": "text",
+                                                                "label": "X"
+                                                            },
+                                                            {
+                                                                "name": "24",
+                                                                "type": "text",
+                                                                "label": "Y"
+                                                            },
+                                                            {
+                                                                "name": "25",
+                                                                "type": "text",
+                                                                "label": "Z"
+                                                            },
+                                                            {
+                                                                "name": "26",
+                                                                "type": "text",
+                                                                "label": "AA"
+                                                            },
+                                                            {
+                                                                "name": "27",
+                                                                "type": "text",
+                                                                "label": "AB"
+                                                            },
+                                                            {
+                                                                "name": "28",
+                                                                "type": "text",
+                                                                "label": "AC"
+                                                            },
+                                                            {
+                                                                "name": "29",
+                                                                "type": "text",
+                                                                "label": "AD"
+                                                            },
+                                                            {
+                                                                "name": "30",
+                                                                "type": "text",
+                                                                "label": "AE"
+                                                            },
+                                                            {
+                                                                "name": "31",
+                                                                "type": "text",
+                                                                "label": "AF"
+                                                            },
+                                                            {
+                                                                "name": "32",
+                                                                "type": "text",
+                                                                "label": "AG"
+                                                            },
+                                                            {
+                                                                "name": "33",
+                                                                "type": "text",
+                                                                "label": "AH"
+                                                            },
+                                                            {
+                                                                "name": "34",
+                                                                "type": "text",
+                                                                "label": "AI"
+                                                            },
+                                                            {
+                                                                "name": "35",
+                                                                "type": "text",
+                                                                "label": "AJ"
+                                                            },
+                                                            {
+                                                                "name": "36",
+                                                                "type": "text",
+                                                                "label": "AK"
+                                                            },
+                                                            {
+                                                                "name": "37",
+                                                                "type": "text",
+                                                                "label": "AL"
+                                                            },
+                                                            {
+                                                                "name": "38",
+                                                                "type": "text",
+                                                                "label": "AM"
+                                                            },
+                                                            {
+                                                                "name": "39",
+                                                                "type": "text",
+                                                                "label": "AN"
+                                                            },
+                                                            {
+                                                                "name": "40",
+                                                                "type": "text",
+                                                                "label": "AO"
+                                                            },
+                                                            {
+                                                                "name": "41",
+                                                                "type": "text",
+                                                                "label": "AP"
+                                                            },
+                                                            {
+                                                                "name": "42",
+                                                                "type": "text",
+                                                                "label": "AQ"
+                                                            },
+                                                            {
+                                                                "name": "43",
+                                                                "type": "text",
+                                                                "label": "AR"
+                                                            },
+                                                            {
+                                                                "name": "44",
+                                                                "type": "text",
+                                                                "label": "AS"
+                                                            },
+                                                            {
+                                                                "name": "45",
+                                                                "type": "text",
+                                                                "label": "AT"
+                                                            },
+                                                            {
+                                                                "name": "46",
+                                                                "type": "text",
+                                                                "label": "AU"
+                                                            },
+                                                            {
+                                                                "name": "47",
+                                                                "type": "text",
+                                                                "label": "AV"
+                                                            },
+                                                            {
+                                                                "name": "48",
+                                                                "type": "text",
+                                                                "label": "AW"
+                                                            },
+                                                            {
+                                                                "name": "49",
+                                                                "type": "text",
+                                                                "label": "AX"
+                                                            },
+                                                            {
+                                                                "name": "50",
+                                                                "type": "text",
+                                                                "label": "AY"
+                                                            },
+                                                            {
+                                                                "name": "51",
+                                                                "type": "text",
+                                                                "label": "AZ"
+                                                            },
+                                                            {
+                                                                "name": "52",
+                                                                "type": "text",
+                                                                "label": "BA"
+                                                            },
+                                                            {
+                                                                "name": "53",
+                                                                "type": "text",
+                                                                "label": "BB"
+                                                            },
+                                                            {
+                                                                "name": "54",
+                                                                "type": "text",
+                                                                "label": "BC"
+                                                            },
+                                                            {
+                                                                "name": "55",
+                                                                "type": "text",
+                                                                "label": "BD"
+                                                            },
+                                                            {
+                                                                "name": "56",
+                                                                "type": "text",
+                                                                "label": "BE"
+                                                            },
+                                                            {
+                                                                "name": "57",
+                                                                "type": "text",
+                                                                "label": "BF"
+                                                            },
+                                                            {
+                                                                "name": "58",
+                                                                "type": "text",
+                                                                "label": "BG"
+                                                            },
+                                                            {
+                                                                "name": "59",
+                                                                "type": "text",
+                                                                "label": "BH"
+                                                            },
+                                                            {
+                                                                "name": "60",
+                                                                "type": "text",
+                                                                "label": "BI"
+                                                            },
+                                                            {
+                                                                "name": "61",
+                                                                "type": "text",
+                                                                "label": "BJ"
+                                                            },
+                                                            {
+                                                                "name": "62",
+                                                                "type": "text",
+                                                                "label": "BK"
+                                                            },
+                                                            {
+                                                                "name": "63",
+                                                                "type": "text",
+                                                                "label": "BL"
+                                                            },
+                                                            {
+                                                                "name": "64",
+                                                                "type": "text",
+                                                                "label": "BM"
+                                                            },
+                                                            {
+                                                                "name": "65",
+                                                                "type": "text",
+                                                                "label": "BN"
+                                                            },
+                                                            {
+                                                                "name": "66",
+                                                                "type": "text",
+                                                                "label": "BO"
+                                                            },
+                                                            {
+                                                                "name": "67",
+                                                                "type": "text",
+                                                                "label": "BP"
+                                                            },
+                                                            {
+                                                                "name": "68",
+                                                                "type": "text",
+                                                                "label": "BQ"
+                                                            },
+                                                            {
+                                                                "name": "69",
+                                                                "type": "text",
+                                                                "label": "BR"
+                                                            },
+                                                            {
+                                                                "name": "70",
+                                                                "type": "text",
+                                                                "label": "BS"
+                                                            },
+                                                            {
+                                                                "name": "71",
+                                                                "type": "text",
+                                                                "label": "BT"
+                                                            },
+                                                            {
+                                                                "name": "72",
+                                                                "type": "text",
+                                                                "label": "BU"
+                                                            },
+                                                            {
+                                                                "name": "73",
+                                                                "type": "text",
+                                                                "label": "BV"
+                                                            },
+                                                            {
+                                                                "name": "74",
+                                                                "type": "text",
+                                                                "label": "BW"
+                                                            },
+                                                            {
+                                                                "name": "75",
+                                                                "type": "text",
+                                                                "label": "BX"
+                                                            },
+                                                            {
+                                                                "name": "76",
+                                                                "type": "text",
+                                                                "label": "BY"
+                                                            },
+                                                            {
+                                                                "name": "77",
+                                                                "type": "text",
+                                                                "label": "BZ"
+                                                            },
+                                                            {
+                                                                "name": "78",
+                                                                "type": "text",
+                                                                "label": "CA"
+                                                            },
+                                                            {
+                                                                "name": "79",
+                                                                "type": "text",
+                                                                "label": "CB"
+                                                            },
+                                                            {
+                                                                "name": "80",
+                                                                "type": "text",
+                                                                "label": "CC"
+                                                            },
+                                                            {
+                                                                "name": "81",
+                                                                "type": "text",
+                                                                "label": "CD"
+                                                            },
+                                                            {
+                                                                "name": "82",
+                                                                "type": "text",
+                                                                "label": "CE"
+                                                            },
+                                                            {
+                                                                "name": "83",
+                                                                "type": "text",
+                                                                "label": "CF"
+                                                            },
+                                                            {
+                                                                "name": "84",
+                                                                "type": "text",
+                                                                "label": "CG"
+                                                            },
+                                                            {
+                                                                "name": "85",
+                                                                "type": "text",
+                                                                "label": "CH"
+                                                            },
+                                                            {
+                                                                "name": "86",
+                                                                "type": "text",
+                                                                "label": "CI"
+                                                            },
+                                                            {
+                                                                "name": "87",
+                                                                "type": "text",
+                                                                "label": "CJ"
+                                                            },
+                                                            {
+                                                                "name": "88",
+                                                                "type": "text",
+                                                                "label": "CK"
+                                                            },
+                                                            {
+                                                                "name": "89",
+                                                                "type": "text",
+                                                                "label": "CL"
+                                                            },
+                                                            {
+                                                                "name": "90",
+                                                                "type": "text",
+                                                                "label": "CM"
+                                                            },
+                                                            {
+                                                                "name": "91",
+                                                                "type": "text",
+                                                                "label": "CN"
+                                                            },
+                                                            {
+                                                                "name": "92",
+                                                                "type": "text",
+                                                                "label": "CO"
+                                                            },
+                                                            {
+                                                                "name": "93",
+                                                                "type": "text",
+                                                                "label": "CP"
+                                                            },
+                                                            {
+                                                                "name": "94",
+                                                                "type": "text",
+                                                                "label": "CQ"
+                                                            },
+                                                            {
+                                                                "name": "95",
+                                                                "type": "text",
+                                                                "label": "CR"
+                                                            },
+                                                            {
+                                                                "name": "96",
+                                                                "type": "text",
+                                                                "label": "CS"
+                                                            },
+                                                            {
+                                                                "name": "97",
+                                                                "type": "text",
+                                                                "label": "CT"
+                                                            },
+                                                            {
+                                                                "name": "98",
+                                                                "type": "text",
+                                                                "label": "CU"
+                                                            },
+                                                            {
+                                                                "name": "99",
+                                                                "type": "text",
+                                                                "label": "CV"
+                                                            },
+                                                            {
+                                                                "name": "100",
+                                                                "type": "text",
+                                                                "label": "CW"
+                                                            },
+                                                            {
+                                                                "name": "101",
+                                                                "type": "text",
+                                                                "label": "CX"
+                                                            },
+                                                            {
+                                                                "name": "102",
+                                                                "type": "text",
+                                                                "label": "CY"
+                                                            },
+                                                            {
+                                                                "name": "103",
+                                                                "type": "text",
+                                                                "label": "CZ"
+                                                            }
+                                                        ],
+                                                        "type": "collection",
+                                                        "label": "Values"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "id": 6,
+                                            "module": "github:createIssue",
+                                            "version": 4,
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": 1500,
+                                                    "y": 0,
+                                                    "messages": [
+                                                        {
+                                                            "category": "setup",
+                                                            "severity": "error",
+                                                            "message": "Value must not be empty."
+                                                        },
+                                                        {
+                                                            "category": "setup",
+                                                            "severity": "error",
+                                                            "message": "Value must not be empty."
+                                                        },
+                                                        {
+                                                            "category": "setup",
+                                                            "severity": "error",
+                                                            "message": "Value must not be empty."
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "id": 9,
+                                            "module": "github:createAComment",
+                                            "version": 4,
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": 1800,
+                                                    "y": 0,
+                                                    "messages": [
+                                                        {
+                                                            "category": "setup",
+                                                            "severity": "error",
+                                                            "message": "Value must not be empty."
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "flow": [
+                                        {
+                                            "id": 21,
+                                            "module": "google-sheets:addRow",
+                                            "version": 2,
+                                            "parameters": {
+                                                "__IMTCONN__": 6285186
+                                            },
+                                            "filter": {
+                                                "name": "Pipeline Succeeded",
+                                                "conditions": [
+                                                    [
+                                                        {
+                                                            "a": "1.workflow_run.conclusion",
+                                                            "b": "success",
+                                                            "o": "text:equal"
+                                                        }
+                                                    ]
+                                                ]
+                                            },
+                                            "mapper": {
+                                                "mode": "fromAll",
+                                                "insertUnformatted": false,
+                                                "valueInputOption": "USER_ENTERED",
+                                                "insertDataOption": "INSERT_ROWS",
+                                                "spreadsheetId": "1wJ4fb8oa4l7M9Dh3VnyPSi9MBFGJFPK86RrRPoYXYgQ",
+                                                "sheetId": "CI_CD_Tracker",
+                                                "includesHeaders": true,
+                                                "values": {
+                                                    "0": "formatDate( now ; \"YYYY-MM-DD HH:mm:ss\" )",
+                                                    "1": "1.repository.full_name",
+                                                    "2": "1.workflow_run.head_branch",
+                                                    "3": "1.workflow_run.name",
+                                                    "4": "1.workflow_run.status",
+                                                    "5": "1.workflow_run.conclusion",
+                                                    "6": "1.workflow_run.event",
+                                                    "7": "1.workflow_run.run_attempt",
+                                                    "8": "substring( 1.workflow_run.head_sha ; 0 ; 7 )",
+                                                    "9": "1.workflow_run.head_commit.message",
+                                                    "10": "1.workflow_run.head_commit.message",
+                                                    "11": "1.workflow_run.html_url",
+                                                    "12": "1.repository.html_url & \"/commit/\" & 1.workflow_run.head_sha",
+                                                    "13": "8.data.html_url",
+                                                    "14": "dateDiff( 1.workflow_run.run_started_at ; 1.workflow_run.updated_at ; \"seconds\" )",
+                                                    "15": "round( number(O) / 60 ; 2 )",
+                                                    "16": "if( F = \"success\" ; \"1\" ; \"0\" )",
+                                                    "17": "if(F=\"failure\";\"Pipeline Error\";if(F=\"cancelled\";\"Manual Cancel\";if(F=\"timed_out\";\"Timeout\";if(F=\"skipped\";\"Skipped\";\"N/A\"))))\r\n​"
+                                                }
+                                            },
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": 1200,
+                                                    "y": 300
+                                                },
+                                                "restore": {
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "label": "My Google connection (lennismbrown@gmail.com)",
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "google"
+                                                            }
+                                                        }
+                                                    },
+                                                    "expect": {
+                                                        "mode": {
+                                                            "label": "Select from all"
+                                                        },
+                                                        "insertUnformatted": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "valueInputOption": {
+                                                            "mode": "chose",
+                                                            "label": "User entered"
+                                                        },
+                                                        "insertDataOption": {
+                                                            "mode": "chose",
+                                                            "label": "Insert rows"
+                                                        },
+                                                        "sheetId": {
+                                                            "mode": "chose",
+                                                            "label": "CI_CD_Tracker"
+                                                        },
+                                                        "includesHeaders": {
+                                                            "nested": [
+                                                                {
+                                                                    "name": "values",
+                                                                    "spec": [
+                                                                        {
+                                                                            "name": "0",
+                                                                            "type": "text",
+                                                                            "label": "Timestamp (A)"
+                                                                        },
+                                                                        {
+                                                                            "name": "1",
+                                                                            "type": "text",
+                                                                            "label": "Repository (B)"
+                                                                        },
+                                                                        {
+                                                                            "name": "2",
+                                                                            "type": "text",
+                                                                            "label": "Branch (C)"
+                                                                        },
+                                                                        {
+                                                                            "name": "3",
+                                                                            "type": "text",
+                                                                            "label": "Workflow (D)"
+                                                                        },
+                                                                        {
+                                                                            "name": "4",
+                                                                            "type": "text",
+                                                                            "label": "Status (E)"
+                                                                        },
+                                                                        {
+                                                                            "name": "5",
+                                                                            "type": "text",
+                                                                            "label": "Conclusion (F)"
+                                                                        },
+                                                                        {
+                                                                            "name": "6",
+                                                                            "type": "text",
+                                                                            "label": "Event (G)"
+                                                                        },
+                                                                        {
+                                                                            "name": "7",
+                                                                            "type": "text",
+                                                                            "label": "Run attempt (H)"
+                                                                        },
+                                                                        {
+                                                                            "name": "8",
+                                                                            "type": "text",
+                                                                            "label": "Commit SHA (short) (I)"
+                                                                        },
+                                                                        {
+                                                                            "name": "9",
+                                                                            "type": "text",
+                                                                            "label": "Commit Message (J)"
+                                                                        },
+                                                                        {
+                                                                            "name": "10",
+                                                                            "type": "text",
+                                                                            "label": "Triggered by (K)"
+                                                                        },
+                                                                        {
+                                                                            "name": "11",
+                                                                            "type": "text",
+                                                                            "label": "Pipeline URL (L)"
+                                                                        },
+                                                                        {
+                                                                            "name": "12",
+                                                                            "type": "text",
+                                                                            "label": "Commit URL (M)"
+                                                                        },
+                                                                        {
+                                                                            "name": "13",
+                                                                            "type": "text",
+                                                                            "label": "Issue URL (N)"
+                                                                        },
+                                                                        {
+                                                                            "name": "14",
+                                                                            "type": "text",
+                                                                            "label": "Run duration (sec) (O)"
+                                                                        },
+                                                                        {
+                                                                            "name": "15",
+                                                                            "type": "text",
+                                                                            "label": "Duration (min) (P)"
+                                                                        },
+                                                                        {
+                                                                            "name": "16",
+                                                                            "type": "text",
+                                                                            "label": "Passed? (Boolean for DB) (Q)"
+                                                                        },
+                                                                        {
+                                                                            "name": "17",
+                                                                            "type": "text",
+                                                                            "label": "(R)"
+                                                                        },
+                                                                        {
+                                                                            "name": "18",
+                                                                            "type": "text",
+                                                                            "label": "(S)"
+                                                                        },
+                                                                        {
+                                                                            "name": "19",
+                                                                            "type": "text",
+                                                                            "label": "(T)"
+                                                                        },
+                                                                        {
+                                                                            "name": "20",
+                                                                            "type": "text",
+                                                                            "label": "(U)"
+                                                                        },
+                                                                        {
+                                                                            "name": "21",
+                                                                            "type": "text",
+                                                                            "label": "(V)"
+                                                                        },
+                                                                        {
+                                                                            "name": "22",
+                                                                            "type": "text",
+                                                                            "label": "(W)"
+                                                                        },
+                                                                        {
+                                                                            "name": "23",
+                                                                            "type": "text",
+                                                                            "label": "(X)"
+                                                                        },
+                                                                        {
+                                                                            "name": "24",
+                                                                            "type": "text",
+                                                                            "label": "(Y)"
+                                                                        },
+                                                                        {
+                                                                            "name": "25",
+                                                                            "type": "text",
+                                                                            "label": "(Z)"
+                                                                        }
+                                                                    ],
+                                                                    "type": "collection",
+                                                                    "label": "Values"
+                                                                }
+                                                            ],
+                                                            "label": "Yes"
+                                                        }
+                                                    }
+                                                },
+                                                "parameters": [
+                                                    {
+                                                        "name": "__IMTCONN__",
+                                                        "type": "account:google",
+                                                        "label": "Connection",
+                                                        "required": true
+                                                    }
+                                                ],
+                                                "expect": [
+                                                    {
+                                                        "name": "mode",
+                                                        "type": "select",
+                                                        "label": "Search Method",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                "select",
+                                                                "fromAll",
+                                                                "map"
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "insertUnformatted",
+                                                        "type": "boolean",
+                                                        "label": "Unformatted",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "valueInputOption",
+                                                        "type": "select",
+                                                        "label": "Value input option",
+                                                        "validate": {
+                                                            "enum": [
+                                                                "USER_ENTERED",
+                                                                "RAW"
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "insertDataOption",
+                                                        "type": "select",
+                                                        "label": "Insert data option",
+                                                        "validate": {
+                                                            "enum": [
+                                                                "INSERT_ROWS",
+                                                                "OVERWRITE"
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "spreadsheetId",
+                                                        "type": "text",
+                                                        "label": "Spreadsheet ID",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "sheetId",
+                                                        "type": "select",
+                                                        "label": "Sheet Name",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "includesHeaders",
+                                                        "type": "select",
+                                                        "label": "Table contains headers",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                true,
+                                                                false
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "values",
+                                                        "type": "collection",
+                                                        "label": "Values",
+                                                        "spec": [
+                                                            {
+                                                                "name": "0",
+                                                                "type": "text",
+                                                                "label": "Timestamp (A)"
+                                                            },
+                                                            {
+                                                                "name": "1",
+                                                                "type": "text",
+                                                                "label": "Repository (B)"
+                                                            },
+                                                            {
+                                                                "name": "2",
+                                                                "type": "text",
+                                                                "label": "Branch (C)"
+                                                            },
+                                                            {
+                                                                "name": "3",
+                                                                "type": "text",
+                                                                "label": "Workflow (D)"
+                                                            },
+                                                            {
+                                                                "name": "4",
+                                                                "type": "text",
+                                                                "label": "Status (E)"
+                                                            },
+                                                            {
+                                                                "name": "5",
+                                                                "type": "text",
+                                                                "label": "Conclusion (F)"
+                                                            },
+                                                            {
+                                                                "name": "6",
+                                                                "type": "text",
+                                                                "label": "Event (G)"
+                                                            },
+                                                            {
+                                                                "name": "7",
+                                                                "type": "text",
+                                                                "label": "Run attempt (H)"
+                                                            },
+                                                            {
+                                                                "name": "8",
+                                                                "type": "text",
+                                                                "label": "Commit SHA (short) (I)"
+                                                            },
+                                                            {
+                                                                "name": "9",
+                                                                "type": "text",
+                                                                "label": "Commit Message (J)"
+                                                            },
+                                                            {
+                                                                "name": "10",
+                                                                "type": "text",
+                                                                "label": "Triggered by (K)"
+                                                            },
+                                                            {
+                                                                "name": "11",
+                                                                "type": "text",
+                                                                "label": "Pipeline URL (L)"
+                                                            },
+                                                            {
+                                                                "name": "12",
+                                                                "type": "text",
+                                                                "label": "Commit URL (M)"
+                                                            },
+                                                            {
+                                                                "name": "13",
+                                                                "type": "text",
+                                                                "label": "Issue URL (N)"
+                                                            },
+                                                            {
+                                                                "name": "14",
+                                                                "type": "text",
+                                                                "label": "Run duration (sec) (O)"
+                                                            },
+                                                            {
+                                                                "name": "15",
+                                                                "type": "text",
+                                                                "label": "Duration (min) (P)"
+                                                            },
+                                                            {
+                                                                "name": "16",
+                                                                "type": "text",
+                                                                "label": "Passed? (Boolean for DB) (Q)"
+                                                            },
+                                                            {
+                                                                "name": "17",
+                                                                "type": "text",
+                                                                "label": "(R)"
+                                                            },
+                                                            {
+                                                                "name": "18",
+                                                                "type": "text",
+                                                                "label": "(S)"
+                                                            },
+                                                            {
+                                                                "name": "19",
+                                                                "type": "text",
+                                                                "label": "(T)"
+                                                            },
+                                                            {
+                                                                "name": "20",
+                                                                "type": "text",
+                                                                "label": "(U)"
+                                                            },
+                                                            {
+                                                                "name": "21",
+                                                                "type": "text",
+                                                                "label": "(V)"
+                                                            },
+                                                            {
+                                                                "name": "22",
+                                                                "type": "text",
+                                                                "label": "(W)"
+                                                            },
+                                                            {
+                                                                "name": "23",
+                                                                "type": "text",
+                                                                "label": "(X)"
+                                                            },
+                                                            {
+                                                                "name": "24",
+                                                                "type": "text",
+                                                                "label": "(Y)"
+                                                            },
+                                                            {
+                                                                "name": "25",
+                                                                "type": "text",
+                                                                "label": "(Z)"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "id": 8,
+                                            "module": "github:createIssue",
+                                            "version": 4,
+                                            "filter": {
+                                                "name": "Pipeline Succeeded",
+                                                "conditions": [
+                                                    [
+                                                        {
+                                                            "a": "1.workflow_run.conclusion",
+                                                            "b": "success",
+                                                            "o": "text:equal"
+                                                        }
+                                                    ]
+                                                ]
+                                            },
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": 1500,
+                                                    "y": 300,
+                                                    "messages": [
+                                                        {
+                                                            "category": "setup",
+                                                            "severity": "error",
+                                                            "message": "Value must not be empty."
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "id": 10,
+                                            "module": "github:createAComment",
+                                            "version": 4,
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": 1800,
+                                                    "y": 300
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "metadata": {
+        "instant": true,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "us2.make.com",
+        "notes": []
+    }
+}
