@@ -24,4 +24,4 @@ This repository stores exported Make.com scenario blueprints so they can be back
 
 ## Visuals
 
-![Full DevOps CI/CD Event Pipeline](make-scenario images/Full DevOps CICD Pipeline.png)
+Full DevOps CI/CD Event Pipeline (make-scenario-images/Full DevOps CICD Pipeline.png)
